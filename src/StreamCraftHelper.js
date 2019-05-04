@@ -178,7 +178,11 @@ export default class StreamCraftHelper extends React.Component {
             <h4>Streamcraft Helper</h4>
             <div className="manage-list">
               <p>
-                <label role="checkbox" className={theatreMode.label.join(' ')} onClick={this.toggleOption.bind(this)}>
+                <label
+                  role="checkbox"
+                  className={theatreMode.label.join(' ')}
+                  onClick={this.toggleOption.bind(this)}
+                >
                   <span aria-checked="mixed" className={theatreMode.span.join(' ')}>
                     <span className="el-checkbox__inner" />
                     <input type="checkbox" aria-hidden="true" className="el-checkbox__original" value="" />
@@ -187,7 +191,11 @@ export default class StreamCraftHelper extends React.Component {
                 </label>
               </p>
               <p>
-                <label role="checkbox" className={likesAnimation.label.join(' ')} onClick={this.toggleOption.bind(this)}>
+                <label
+                  role="checkbox"
+                  className={likesAnimation.label.join(' ')}
+                  onClick={this.toggleOption.bind(this)}
+                >
                   <span aria-checked="mixed" className={likesAnimation.span.join(' ')}>
                     <span className="el-checkbox__inner" />
                     <input type="checkbox" aria-hidden="true" className="el-checkbox__original" value="" />
@@ -196,7 +204,11 @@ export default class StreamCraftHelper extends React.Component {
                 </label>
               </p>
               <p>
-                <label role="checkbox" className={autoLikes.label.join(' ')} onClick={this.toggleOption.bind(this)}>
+                <label
+                  role="checkbox"
+                  className={autoLikes.label.join(' ')}
+                  onClick={this.toggleOption.bind(this)}
+                >
                   <span aria-checked="mixed" className={autoLikes.span.join(' ')}>
                     <span className="el-checkbox__inner" />
                     <input type="checkbox" aria-hidden="true" className="el-checkbox__original" value="" />
@@ -205,7 +217,11 @@ export default class StreamCraftHelper extends React.Component {
                 </label>
               </p>
               <p>
-                <label role="checkbox" className={autoOpenChest.label.join(' ')} onClick={this.toggleOption.bind(this)}>
+                <label
+                  role="checkbox"
+                  className={autoOpenChest.label.join(' ')}
+                  onClick={this.toggleOption.bind(this)}
+                >
                   <span aria-checked="mixed" className={autoOpenChest.span.join(' ')}>
                     <span className="el-checkbox__inner" />
                     <input type="checkbox" aria-hidden="true" className="el-checkbox__original" value="" />
@@ -214,7 +230,11 @@ export default class StreamCraftHelper extends React.Component {
                 </label>
               </p>
               <p>
-                <label role="checkbox" className={hideRankingAndVIP.label.join(' ')} onClick={this.toggleOption.bind(this)}>
+                <label
+                  role="checkbox"
+                  className={hideRankingAndVIP.label.join(' ')}
+                  onClick={this.toggleOption.bind(this)}
+                >
                   <span aria-checked="mixed" className={hideRankingAndVIP.span.join(' ')}>
                     <span className="el-checkbox__inner" />
                     <input type="checkbox" aria-hidden="true" className="el-checkbox__original" value="" />
