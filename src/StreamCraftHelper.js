@@ -2,6 +2,8 @@ import React from 'react';
 
 import './layouts/TheatreMode.css';
 
+const LATENCY = 3;
+
 export default class StreamCraftHelper extends React.Component {
   constructor(props) {
     super(props);
@@ -113,7 +115,7 @@ export default class StreamCraftHelper extends React.Component {
 
             interval = setInterval(() => {
               document.querySelector('.like-icon').click();
-            }, 5);
+            }, LATENCY);
           }
 
           return { autoLikes: { label, span, interval } };
@@ -128,21 +130,15 @@ export default class StreamCraftHelper extends React.Component {
             label.splice(-1, 1);
             span.splice(-1, 1);
 
-            console.log('Not implement.');
-            return;
-
             clearInterval(interval);
             interval = null;
           } else {
             label.push('is-checked');
             span.push('is-checked');
 
-            console.log('Not implement.');
-            return;
-
             interval = setInterval(() => {
 
-            }, 1);
+            }, LATENCY);
           }
 
           return { autoOpenChest: { label, span, interval } };
