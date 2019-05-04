@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default class StreamcraftHelper extends React.Component {
+import './layouts/TheatreMode.css';
+
+export default class StreamCraftHelper extends React.Component {
   constructor(props) {
     super(props);
 
@@ -58,6 +60,20 @@ export default class StreamcraftHelper extends React.Component {
             span.push('is-checked');
           }
 
+          [
+            'contaniner',
+            'header',
+            'channel-sider',
+            'chat-lists',
+            'room-wrapper',
+            'side-bar',
+            'content',
+            'channel',
+          ]
+            .forEach((className) => {
+              document.querySelector(`.${className}`).classList.toggle(`${className}-fix`);
+            });
+
           return { theatreMode: { label, span } };
         });
         break;
@@ -97,7 +113,7 @@ export default class StreamcraftHelper extends React.Component {
 
             interval = setInterval(() => {
               document.querySelector('.like-icon').click();
-            }, 1);
+            }, 5);
           }
 
           return { autoLikes: { label, span, interval } };
