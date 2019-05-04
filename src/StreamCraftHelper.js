@@ -12,7 +12,7 @@ export default class StreamCraftHelper extends React.Component {
         label: ['el-checkbox', 'manage-item'],
         span: ['el-checkbox__input'],
       },
-      likesAnimation: {
+      hideLikesAnimation: {
         label: ['el-checkbox', 'manage-item'],
         span: ['el-checkbox__input'],
       },
@@ -77,9 +77,9 @@ export default class StreamCraftHelper extends React.Component {
           return { theatreMode: { label, span } };
         });
         break;
-      case 'Likes Animation':
+      case 'Hide Likes Animation':
         this.setState((prev) => {
-          const { label, span } = prev.likesAnimation;
+          const { label, span } = prev.hideLikesAnimation;
 
           if (label.includes('is-checked')) {
             label.splice(-1, 1);
@@ -93,7 +93,7 @@ export default class StreamCraftHelper extends React.Component {
             document.querySelector('.hearts').style.display = 'none';
           }
 
-          return { likesAnimation: { label, span } };
+          return { hideLikesAnimation: { label, span } };
         });
         break;
       case 'Auto Likes':
@@ -167,7 +167,7 @@ export default class StreamCraftHelper extends React.Component {
 
   render() {
     const {
-      visible, theatreMode, likesAnimation, autoLikes, autoOpenChest, hideRankingAndVIP,
+      visible, theatreMode, hideLikesAnimation, autoLikes, autoOpenChest, hideRankingAndVIP,
     } = this.state;
 
     return (
@@ -193,14 +193,14 @@ export default class StreamCraftHelper extends React.Component {
               <p>
                 <label
                   role="checkbox"
-                  className={likesAnimation.label.join(' ')}
+                  className={hideLikesAnimation.label.join(' ')}
                   onClick={this.toggleOption.bind(this)}
                 >
-                  <span aria-checked="mixed" className={likesAnimation.span.join(' ')}>
+                  <span aria-checked="mixed" className={hideLikesAnimation.span.join(' ')}>
                     <span className="el-checkbox__inner" />
                     <input type="checkbox" aria-hidden="true" className="el-checkbox__original" value="" />
                   </span>
-                  <span className="el-checkbox__label">Likes Animation</span>
+                  <span className="el-checkbox__label">Hide Likes Animation</span>
                 </label>
               </p>
               <p>
