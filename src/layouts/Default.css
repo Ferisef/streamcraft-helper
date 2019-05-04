@@ -1,25 +1,24 @@
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #303031;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #47474a;
-  border-radius: 2.5px;
+  background-color: #323232;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #71767c;
+  background-color: #47474a;
 }
 
 .manage-sh {
   position: absolute;
   bottom: 8px;
-  left: 37px;
+  left: 38px;
   width: 24px;
   height: 24px;
 }

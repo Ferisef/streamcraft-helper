@@ -8,15 +8,15 @@
 
 .channel-sider-fix {
   top: 0 !important;
-  width: 400px !important;
+  width: 410px !important;
 }
 
 .chat-lists-fix {
-  padding-right: 0 !important;
+  padding-right: 5px !important;
 }
 
 .room-wrapper-fix {
-  padding-right: 405px !important;
+  padding-right: 410px !important;
 }
 
 .side-bar-fix {
@@ -29,4 +29,9 @@
 
 .channel-fix {
   padding-top: 0 !important;
+}
+
+.channel-fix {
+  height: 100vh;
+  overflow: auto;
 }
