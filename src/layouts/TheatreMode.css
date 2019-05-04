@@ -32,6 +32,6 @@
 }
 
 .channel-fix {
-  height: 100vh;
-  overflow: auto;
+  height: 100vh !important;
+  overflow: auto !important;
 }

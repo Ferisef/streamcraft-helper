@@ -15,6 +15,14 @@
   background-color: #47474a;
 }
 
+.handle-bar {
+  width: 45px !important;
+}
+
+.praise {
+  margin-left: 0 !important;
+}
+
 .manage-sh {
   position: absolute;
   bottom: 8px;
