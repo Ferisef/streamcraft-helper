@@ -128,11 +128,17 @@ export default class StreamCraftHelper extends React.Component {
             label.splice(-1, 1);
             span.splice(-1, 1);
 
+            console.log('Not implement.');
+            return;
+
             clearInterval(interval);
             interval = null;
           } else {
             label.push('is-checked');
             span.push('is-checked');
+
+            console.log('Not implement.');
+            return;
 
             interval = setInterval(() => {
 
