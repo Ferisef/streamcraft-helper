@@ -4,6 +4,7 @@ const webpack = require('webpack');
 
 module.exports = {
   mode: 'production',
+  devtool: 'source-map',
   target: 'web',
   entry: './src/index.jsx',
   output: {
@@ -31,6 +32,7 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserJSPlugin({
+        sourceMap: true,
         terserOptions: {
           mangle: {
             keep_classnames: true,
