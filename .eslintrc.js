@@ -19,7 +19,6 @@ module.exports = {
     'react',
   ],
   rules: {
-    'react/jsx-filename-extension': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'jsx-a11y/label-has-for': 'off',
     'jsx-a11y/role-has-required-aria-props': 'off',

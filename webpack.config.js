@@ -5,7 +5,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'production',
   target: 'web',
-  entry: './src/index.js',
+  entry: './src/index.jsx',
   output: {
     path: path.resolve('build'),
     filename: '[chunkhash].bundle.js',
@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -26,7 +26,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js'],
+    extensions: ['*', '.js', '.jsx'],
   },
   optimization: {
     minimizer: [
