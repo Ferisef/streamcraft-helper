@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import ManageBtn from './components/ManageBtn';
+import ManageButton from './components/ManageButton';
 
 import './layouts/Scrollbar.css';
 import './layouts/ManageBtn.css';
@@ -13,7 +13,7 @@ document.querySelector('.chat-dialog').append(element);
 
 ReactDOM.render(
   <Provider store={store}>
-    <ManageBtn />
+    <ManageButton />
   </Provider>,
   document.querySelector('.manage-st'),
 );

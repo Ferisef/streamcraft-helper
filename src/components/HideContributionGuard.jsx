@@ -1,37 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setTheatreMode as setTheatreModeAction } from '../actions/storageActions';
+import { setHideContribGuard as setHideContribGuardAction } from '../actions/storageActions';
 
-import '../layouts/TheatreMode.css';
-
-class TheatreModeBtn extends React.Component {
+class HideContributionGuard extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { checked: props.theatreMode };
+    this.state = { checked: props.hideContribGuard };
   }
 
   componentDidUpdate() {
     const { checked } = this.state;
 
-    [
-      'contaniner',
-      'header',
-      'channel-sider',
-      'chat-lists',
-      'room-wrapper',
-      'side-bar',
-      'content',
-      'channel',
-    ].forEach((className) => {
-      const { classList } = document.querySelector(`.${className}`);
-      if (checked) {
-        classList.add(`${className}-fix`);
-        return;
-      }
-      classList.remove(`${className}-fix`);
-    });
+    document.querySelector('.contribution-guard').style.display = checked ? 'none' : '';
   }
 
   toggle(event) {
@@ -40,8 +22,8 @@ class TheatreModeBtn extends React.Component {
     this.setState((prev) => {
       const value = !prev.checked;
 
-      const { setTheatreMode } = this.props;
-      setTheatreMode(value);
+      const { setHideContribGuard } = this.props;
+      setHideContribGuard(value);
 
       return { checked: !prev.checked };
     });
@@ -60,24 +42,24 @@ class TheatreModeBtn extends React.Component {
             <span className="el-checkbox__inner" />
             <input type="checkbox" aria-hidden="true" className="el-checkbox__original" value="" />
           </span>
-          <span className="el-checkbox__label">Theatre Mode</span>
+          <span className="el-checkbox__label">Hide Contribution Guard</span>
         </label>
       </p>
     );
   }
 }
 
-TheatreModeBtn.propTypes = {
-  theatreMode: PropTypes.bool.isRequired,
-  setTheatreMode: PropTypes.func.isRequired,
+HideContributionGuard.propTypes = {
+  hideContribGuard: PropTypes.bool.isRequired,
+  setHideContribGuard: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = store => ({
-  theatreMode: store.theatreMode,
+  hideContribGuard: store.hideContribGuard,
 });
 
 const mapDispatchToProps = dispatch => ({
-  setTheatreMode: value => dispatch(setTheatreModeAction(value)),
+  setHideContribGuard: value => dispatch(setHideContribGuardAction(value)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TheatreModeBtn);
+export default connect(mapStateToProps, mapDispatchToProps)(HideContributionGuard);

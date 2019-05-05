@@ -1,22 +1,22 @@
 import React from 'react';
-import TheatreModeBtn from './TheatreModeBtn';
-import HideContributionGuardBtn from './HideContributionGuardBtn';
-import HideLikesAnimationBtn from './HideLikesAnimationBtn';
-import AutoLikesBtn from './AutoLikesBtn';
-import AutoOpenChestBtn from './AutoOpenChestBtn';
+import TheatreMode from './TheatreMode';
+import HideContributionGuard from './HideContributionGuard';
+import HideLikesAnimation from './HideLikeAnimation';
+import AutoLikes from './AutoLike';
+import AutoOpenChest from './AutoOpenChest';
 
 const ManageBar = () => (
   <div className="manage-bar" style={{ userSelect: 'none' }}>
     <h4>StreamCraft Settings</h4>
     <div className="manage-list">
-      <TheatreModeBtn />
-      <HideContributionGuardBtn />
-      <HideLikesAnimationBtn />
+      <TheatreMode />
+      <HideContributionGuard />
+      <HideLikesAnimation />
     </div>
     <h4>Clickers</h4>
     <div className="manage-list">
-      <AutoLikesBtn />
-      <AutoOpenChestBtn />
+      <AutoLikes />
+      <AutoOpenChest />
     </div>
   </div>
 );

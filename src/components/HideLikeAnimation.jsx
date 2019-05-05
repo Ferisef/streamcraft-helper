@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setHideContribGuard as setHideContribGuardAction } from '../actions/storageActions';
+import { setHideLikesAnim as setHideLikesAnimAction } from '../actions/storageActions';
 
-class HideContributionGuardBtn extends React.Component {
+class HideLikesAnimation extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { checked: props.hideContribGuard };
+    this.state = { checked: props.hideLikesAnim };
   }
 
   componentDidUpdate() {
     const { checked } = this.state;
 
-    document.querySelector('.contribution-guard').style.display = checked ? 'none' : '';
+    document.querySelector('.hearts').style.display = checked ? 'none' : '';
   }
 
   toggle(event) {
@@ -22,8 +22,8 @@ class HideContributionGuardBtn extends React.Component {
     this.setState((prev) => {
       const value = !prev.checked;
 
-      const { setHideContribGuard } = this.props;
-      setHideContribGuard(value);
+      const { setHideLikesAnim } = this.props;
+      setHideLikesAnim(value);
 
       return { checked: !prev.checked };
     });
@@ -42,24 +42,24 @@ class HideContributionGuardBtn extends React.Component {
             <span className="el-checkbox__inner" />
             <input type="checkbox" aria-hidden="true" className="el-checkbox__original" value="" />
           </span>
-          <span className="el-checkbox__label">Hide Contribution Guard</span>
+          <span className="el-checkbox__label">Hide Likes Animation</span>
         </label>
       </p>
     );
   }
 }
 
-HideContributionGuardBtn.propTypes = {
-  hideContribGuard: PropTypes.bool.isRequired,
-  setHideContribGuard: PropTypes.func.isRequired,
+HideLikesAnimation.propTypes = {
+  hideLikesAnim: PropTypes.bool.isRequired,
+  setHideLikesAnim: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = store => ({
-  hideContribGuard: store.hideContribGuard,
+  hideLikesAnim: store.hideLikesAnim,
 });
 
 const mapDispatchToProps = dispatch => ({
-  setHideContribGuard: value => dispatch(setHideContribGuardAction(value)),
+  setHideLikesAnim: value => dispatch(setHideLikesAnimAction(value)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HideContributionGuardBtn);
+export default connect(mapStateToProps, mapDispatchToProps)(HideLikesAnimation);

@@ -1,9 +1,7 @@
 import React from 'react';
 import ManageBar from './ManageBar';
 
-import '../layouts/TheatreMode.css';
-
-export default class ManageBtn extends React.Component {
+export default class ManageButton extends React.Component {
   constructor(props) {
     super(props);
 

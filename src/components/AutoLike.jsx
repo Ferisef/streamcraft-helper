@@ -1,34 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAutoOpenChest as setAutoOpenChestAction } from '../actions/storageActions';
+import { setAutoLike as setAutoLikeAction } from '../actions/storageActions';
 
 const LATENCY = 3;
 
-class AutoOpenChestBtn extends React.Component {
+class AutoLike extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { checked: props.autoOpenChest.checked };
+    this.state = { checked: props.autoLike.checked };
   }
 
   toggle(event) {
     if (event.target.nodeName === 'SPAN') return;
 
-    const { autoOpenChest, setAutoOpenChest } = this.props;
+    const { autoLike, setAutoLike } = this.props;
 
     this.setState((prev) => {
       const value = !prev.checked;
 
-      // if (value) {
-      //   autoOpenChest.interval = setInterval(() => document.querySelector('.chest').click(), LATENCY);
-      // } else {
-      //   clearInterval(autoOpenChest.interval);
-      // }
+      if (value) {
+        autoLike.interval = setInterval(() => document.querySelector('.like-icon').click(), LATENCY);
+      } else {
+        clearInterval(autoLike.interval);
+      }
 
-      console.log('WIP');
-
-      setAutoOpenChest(value, autoOpenChest.interval);
+      setAutoLike(value, autoLike.interval);
 
       return { checked: !prev.checked };
     });
@@ -47,24 +45,24 @@ class AutoOpenChestBtn extends React.Component {
             <span className="el-checkbox__inner" />
             <input type="checkbox" aria-hidden="true" className="el-checkbox__original" value="" />
           </span>
-          <span className="el-checkbox__label">Chest</span>
+          <span className="el-checkbox__label">Like</span>
         </label>
       </p>
     );
   }
 }
 
-AutoOpenChestBtn.propTypes = {
-  autoOpenChest: PropTypes.bool.isRequired,
-  setAutoOpenChest: PropTypes.func.isRequired,
+AutoLike.propTypes = {
+  autoLike: PropTypes.bool.isRequired,
+  setAutoLike: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = store => ({
-  autoOpenChest: store.autoOpenChest,
+  autoLike: store.autoLike,
 });
 
 const mapDispatchToProps = dispatch => ({
-  setAutoOpenChest: (value, interval) => dispatch(setAutoOpenChestAction(value, interval)),
+  setAutoLike: (value, interval) => dispatch(setAutoLikeAction(value, interval)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AutoOpenChestBtn);
+export default connect(mapStateToProps, mapDispatchToProps)(AutoLike);
