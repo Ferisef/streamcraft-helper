@@ -35,7 +35,7 @@ export default class StreamCraftHelper extends React.Component {
     };
   }
 
-  toggleVisible() {
+  toggleVisibility() {
     this.setState(prev => ({ visible: !prev.visible }));
   }
 
@@ -174,7 +174,7 @@ export default class StreamCraftHelper extends React.Component {
 
     return (
       <>
-        <i className="icon set-icon" role="presentation" onClick={this.toggleVisible.bind(this)} />
+        <i className="icon set-icon" role="presentation" onClick={this.toggleVisibility.bind(this)} />
         {visible && (
           <div className="manage-bar" style={{ userSelect: 'none' }}>
             <h4>Streamcraft Helper</h4>
