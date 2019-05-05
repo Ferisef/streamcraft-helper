@@ -1,32 +1,35 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setAutoLike as setAutoLikeAction } from '../actions/storageActions';
 
 const LATENCY = 3;
 
-let interval;
-
-export default class AutoLikesBtn extends React.Component {
+class AutoLikesBtn extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { checked: false };
-  }
-
-  componentDidUpdate() {
-    const { checked } = this.state;
-
-    if (checked) {
-      interval = setInterval(() => {
-        document.querySelector('.like-icon').click();
-      }, LATENCY);
-      return;
-    }
-    clearInterval(interval);
+    this.state = { checked: props.autoLike.checked };
   }
 
   toggle(event) {
     if (event.target.nodeName === 'SPAN') return;
 
-    this.setState(prev => ({ checked: !prev.checked }));
+    const { autoLike, setAutoLike } = this.props;
+
+    this.setState((prev) => {
+      const value = !prev.checked;
+
+      if (value) {
+        autoLike.interval = setInterval(() => document.querySelector('.like-icon').click(), LATENCY);
+      } else {
+        clearInterval(autoLike.interval);
+      }
+
+      setAutoLike(value, autoLike.interval);
+
+      return { checked: !prev.checked };
+    });
   }
 
   render() {
@@ -48,3 +51,18 @@ export default class AutoLikesBtn extends React.Component {
     );
   }
 }
+
+AutoLikesBtn.propTypes = {
+  autoLike: PropTypes.bool.isRequired,
+  setAutoLike: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = store => ({
+  autoLike: store.autoLike,
+});
+
+const mapDispatchToProps = dispatch => ({
+  setAutoLike: (value, interval) => dispatch(setAutoLikeAction(value, interval)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AutoLikesBtn);

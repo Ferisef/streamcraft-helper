@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setHideLikesAnim as setHideLikesAnimAction } from '../actions/storageActions';
 
-export default class HideContributionGuardBtn extends React.Component {
+class HideLikesAnimationBtn extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { checked: false };
+    this.state = { checked: props.hideLikesAnim };
   }
 
   componentDidUpdate() {
@@ -16,7 +19,14 @@ export default class HideContributionGuardBtn extends React.Component {
   toggle(event) {
     if (event.target.nodeName === 'SPAN') return;
 
-    this.setState(prev => ({ checked: !prev.checked }));
+    this.setState((prev) => {
+      const value = !prev.checked;
+
+      const { setHideLikesAnim } = this.props;
+      setHideLikesAnim(value);
+
+      return { checked: !prev.checked };
+    });
   }
 
   render() {
@@ -38,3 +48,18 @@ export default class HideContributionGuardBtn extends React.Component {
     );
   }
 }
+
+HideLikesAnimationBtn.propTypes = {
+  hideLikesAnim: PropTypes.bool.isRequired,
+  setHideLikesAnim: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = store => ({
+  hideLikesAnim: store.hideLikesAnim,
+});
+
+const mapDispatchToProps = dispatch => ({
+  setHideLikesAnim: value => dispatch(setHideLikesAnimAction(value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HideLikesAnimationBtn);

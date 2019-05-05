@@ -1,12 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setTheatreMode as setTheatreModeAction } from '../actions/storageActions';
 
 import '../layouts/TheatreMode.css';
 
-export default class TheatreModeBtn extends React.Component {
+class TheatreModeBtn extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { checked: false };
+    this.state = { checked: props.theatreMode };
   }
 
   componentDidUpdate() {
@@ -34,7 +37,14 @@ export default class TheatreModeBtn extends React.Component {
   toggle(event) {
     if (event.target.nodeName === 'SPAN') return;
 
-    this.setState(prev => ({ checked: !prev.checked }));
+    this.setState((prev) => {
+      const value = !prev.checked;
+
+      const { setTheatreMode } = this.props;
+      setTheatreMode(value);
+
+      return { checked: !prev.checked };
+    });
   }
 
   render() {
@@ -56,3 +66,18 @@ export default class TheatreModeBtn extends React.Component {
     );
   }
 }
+
+TheatreModeBtn.propTypes = {
+  theatreMode: PropTypes.bool.isRequired,
+  setTheatreMode: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = store => ({
+  theatreMode: store.theatreMode,
+});
+
+const mapDispatchToProps = dispatch => ({
+  setTheatreMode: value => dispatch(setTheatreModeAction(value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TheatreModeBtn);

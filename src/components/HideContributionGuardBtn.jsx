@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setHideContribGuard as setHideContribGuardAction } from '../actions/storageActions';
 
-export default class HideContributionGuardBtn extends React.Component {
+class HideContributionGuardBtn extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { checked: false };
+    this.state = { checked: props.hideContribGuard };
   }
 
   componentDidUpdate() {
@@ -16,7 +19,14 @@ export default class HideContributionGuardBtn extends React.Component {
   toggle(event) {
     if (event.target.nodeName === 'SPAN') return;
 
-    this.setState(prev => ({ checked: !prev.checked }));
+    this.setState((prev) => {
+      const value = !prev.checked;
+
+      const { setHideContribGuard } = this.props;
+      setHideContribGuard(value);
+
+      return { checked: !prev.checked };
+    });
   }
 
   render() {
@@ -38,3 +48,18 @@ export default class HideContributionGuardBtn extends React.Component {
     );
   }
 }
+
+HideContributionGuardBtn.propTypes = {
+  hideContribGuard: PropTypes.bool.isRequired,
+  setHideContribGuard: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = store => ({
+  hideContribGuard: store.hideContribGuard,
+});
+
+const mapDispatchToProps = dispatch => ({
+  setHideContribGuard: value => dispatch(setHideContribGuardAction(value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HideContributionGuardBtn);
