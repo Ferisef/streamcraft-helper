@@ -4,7 +4,7 @@ StreamCraft script.
 * Theatre Mode
 * Hide Likes Animation
 * Auto Likes
-* Auto Open Chest
+* Auto Open Chest (WIP)
 * Hide Ranking and VIP
 
 ## TamperMonkey code
