@@ -2,10 +2,10 @@
 
 StreamCraft script.
 * Theatre Mode
-* Hide Likes Animation
-* Auto Likes
+* Hide Like Animation
+* Auto Like
 * Auto Open Chest (WIP)
-* Hide Ranking and VIP
+* Hide Contribution Guard
 
 ## TamperMonkey code
 ```javascript
@@ -17,7 +17,7 @@ StreamCraft script.
 
     const script = document.createElement('script');
 
-    script.src = 'https://ferisef.github.io/streamcraft-helper/f48d2ff5a48e2b795fe7.bundle.js';
+    script.src = 'https://ferisef.github.io/streamcraft-helper/91f8931f518515d9abe0.bundle.js';
     script.crossOrigin = 'anonymous';
 
     document.body.append(script);
