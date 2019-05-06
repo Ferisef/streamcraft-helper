@@ -1,29 +1,14 @@
-# [StreamCraft](https://streamcraft.com/ "StreamCraft.com website")
+# [StreamCraft](https://streamcraft.com "StreamCraft website")
 
-StreamCraft script.
+StreamCraft Script
 * Theatre Mode
-* Hide Like Animation
+* Hide Contribution Guard
+* Hide Likes Animation
 * Auto Like
 * Auto Open Chest (WIP)
-* Hide Contribution Guard
 
-## TamperMonkey code
-```javascript
-(function () {
-  let interval = setInterval(() => {
-    if (!document.querySelector('.chat-dialog')) {
-      return;
-    }
+## TamperMonkey Extension
+[OpenUserJS](https://openuserjs.org/scripts/%E3%82%A2%E3%83%8B%E3%83%A1%E3%81%A1%E3%82%83%E3%82%93/StreamCraft_Script "StreamCraft Script")
 
-    const script = document.createElement('script');
-
-    script.src = 'https://ferisef.github.io/streamcraft-helper/91f8931f518515d9abe0.bundle.js';
-    script.crossOrigin = 'anonymous';
-
-    document.body.append(script);
-    clearInterval(interval);
-  }, 300);
-})();
-```
-
+## GitHub Pages
 [Actual Version](https://ferisef.github.io/streamcraft-helper/)
