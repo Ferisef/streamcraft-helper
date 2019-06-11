@@ -40,7 +40,7 @@ export default function (state = initialState, action) {
     case 'AUTO_OPEN_CHEST':
       return {
         ...state,
-        autoLike: {
+        autoOpenChest: {
           checked: action.payload.checked,
           interval: action.payload.interval,
         },
