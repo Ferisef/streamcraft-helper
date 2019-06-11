@@ -53,7 +53,10 @@ class AutoLike extends React.Component {
 }
 
 AutoLike.propTypes = {
-  autoLike: PropTypes.bool.isRequired,
+  autoLike: PropTypes.shape({
+    checked: PropTypes.bool,
+    interval: PropTypes.number,
+  }).isRequired,
   setAutoLike: PropTypes.func.isRequired,
 };
 

@@ -58,7 +58,10 @@ class AutoOpenChest extends React.Component {
 }
 
 AutoOpenChest.propTypes = {
-  autoOpenChest: PropTypes.bool.isRequired,
+  autoOpenChest: PropTypes.shape({
+    checked: PropTypes.bool,
+    interval: PropTypes.number,
+  }).isRequired,
   setAutoOpenChest: PropTypes.func.isRequired,
 };
 
