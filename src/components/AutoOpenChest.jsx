@@ -22,7 +22,7 @@ class AutoOpenChest extends React.Component {
 
       if (value) {
         autoOpenChest.interval = setInterval(() => {
-          const chest = document.querySelector('.chest-icon');
+          const chest = document.querySelector('.new-chest-bar .chest-icon');
           if (chest) {
             chest.click();
           }
