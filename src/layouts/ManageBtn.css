@@ -1,7 +1,7 @@
 .manage-st {
-  position: absolute;
-  bottom: 8px;
-  left: 38px;
+  display: inline-block;
   width: 24px;
   height: 24px;
+  margin: 7px 0 0 11px;
+  text-align: center;
 }
