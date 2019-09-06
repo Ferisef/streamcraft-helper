@@ -34,12 +34,6 @@ module.exports = {
       new TerserJSPlugin({
         sourceMap: true,
         terserOptions: {
-          mangle: {
-            keep_classnames: true,
-          },
-          compress: {
-            keep_classnames: true,
-          },
           output: {
             comments: false,
           },
