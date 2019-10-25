@@ -7,13 +7,18 @@ import ManageButton from './components/ManageButton';
 import './layouts/Scrollbar.css';
 import './layouts/ManageBtn.css';
 
-const element = document.createElement('div');
-element.classList.add('manage-st');
-document.querySelector('.chat-actions').append(element);
+const div = document.createElement('div');
+div.classList.add('manage-st');
 
-ReactDOM.render(
-  <Provider store={createStore()}>
-    <ManageButton />
-  </Provider>,
-  element,
-);
+try {
+  document.querySelector('.chat-actions').append(div);
+
+  ReactDOM.render(
+    <Provider store={createStore()}>
+      <ManageButton />
+    </Provider>,
+    div,
+  );
+} catch (e) {
+  console.log('Cannot attach StreamCraft Settings to ChatActions.');
+}
