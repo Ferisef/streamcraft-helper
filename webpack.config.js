@@ -2,9 +2,11 @@ const path = require('path');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = {
-  mode: 'production',
-  devtool: 'source-map',
+  mode: isProd ? 'production' : 'development',
+  devtool: isProd ? false : 'source-map',
   target: 'web',
   entry: './src/index.jsx',
   output: {
@@ -32,7 +34,7 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserJSPlugin({
-        sourceMap: true,
+        sourceMap: !isProd,
         terserOptions: {
           output: {
             comments: false,
