@@ -5,7 +5,7 @@ import reducer from '../reducers/genaral';
 const isProd = process.env.NODE_ENV === 'production';
 
 export default () => {
-  if (isProd && false) {
+  if (isProd) {
     return createStore(reducer);
   }
 
