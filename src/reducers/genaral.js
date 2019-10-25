@@ -1,8 +1,8 @@
 import {
   TOGGLE_THEATRE_MODE,
   TOGGLE_CONTRIB_GUARD_VISIBILITY,
-  TOGGLE_LIKE_ANIM_VISIBILITY,
-  LIKE_CLICKER,
+  TOGGLE_LIKES_ANIM_VISIBILITY,
+  LIKES_CLICKER,
   CHEST_CLICKER,
 } from '../constants/general';
 
@@ -32,12 +32,12 @@ export default (state = initialState, action) => {
         ...state,
         hideContribGuard: action.payload,
       };
-    case TOGGLE_LIKE_ANIM_VISIBILITY:
+    case TOGGLE_LIKES_ANIM_VISIBILITY:
       return {
         ...state,
         hideLikesAnim: action.payload,
       };
-    case LIKE_CLICKER:
+    case LIKES_CLICKER:
       return {
         ...state,
         likesClicker: { ...action.payload },

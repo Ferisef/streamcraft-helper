@@ -1,8 +1,8 @@
 import {
   TOGGLE_THEATRE_MODE,
   TOGGLE_CONTRIB_GUARD_VISIBILITY,
-  TOGGLE_LIKE_ANIM_VISIBILITY,
-  LIKE_CLICKER,
+  TOGGLE_LIKES_ANIM_VISIBILITY,
+  LIKES_CLICKER,
   CHEST_CLICKER,
 } from '../constants/general';
 
@@ -17,12 +17,12 @@ export const toggleContribGuardVisibility = value => ({
 });
 
 export const toggleLikesAnimVisibility = value => ({
-  type: TOGGLE_LIKE_ANIM_VISIBILITY,
+  type: TOGGLE_LIKES_ANIM_VISIBILITY,
   payload: value,
 });
 
 export const toggleLikeClicker = (active, id) => ({
-  type: LIKE_CLICKER,
+  type: LIKES_CLICKER,
   payload: {
     active, id,
   },
