@@ -2,8 +2,14 @@
 
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import storageReducer from '../reducers/storageReducer';
+import reducer from '../reducers/genaral';
 
-const store = createStore(storageReducer, composeWithDevTools());
+const isProd = process.env.NODE_ENV === 'production';
 
-export default store;
+export default () => {
+  if (isProd && false) {
+    return createStore(reducer);
+  }
+
+  return createStore(reducer, composeWithDevTools());
+};
