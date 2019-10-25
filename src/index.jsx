@@ -9,7 +9,7 @@ import './layouts/ManageBtn.css';
 
 const element = document.createElement('div');
 element.classList.add('manage-st');
-document.querySelector('.chat-dialog').append(element);
+document.querySelector('.chat-actions').append(element);
 
 ReactDOM.render(
   <Provider store={store}>
