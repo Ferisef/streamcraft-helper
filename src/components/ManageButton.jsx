@@ -1,25 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ManageBar from './ManageBar';
 
-export default class ManageButton extends React.Component {
-  constructor(props) {
-    super(props);
+export default () => {
+  const [visible, setVisible] = useState(false);
 
-    this.state = { visible: false };
-  }
-
-  toggleVisibility() {
-    this.setState(prev => ({ visible: !prev.visible }));
-  }
-
-  render() {
-    const { visible } = this.state;
-
-    return (
-      <>
-        <i className="icon set-icon" role="button" tabIndex={-1} onClick={this.toggleVisibility.bind(this)} onKeyDown />
-        {visible && <ManageBar />}
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <i
+        className="icon set-icon"
+        role="button"
+        tabIndex={-1}
+        onClick={() => {
+          setVisible(!visible);
+        }}
+        onKeyDown={() => {}}
+      />
+      {visible && <ManageBar />}
+    </>
+  );
+};

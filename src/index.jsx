@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import createStore from './store';
 import ManageButton from './components/ManageButton';
 
 import './layouts/Scrollbar.css';
@@ -12,8 +12,8 @@ element.classList.add('manage-st');
 document.querySelector('.chat-actions').append(element);
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={createStore()}>
     <ManageButton />
   </Provider>,
-  document.querySelector('.manage-st'),
+  element,
 );
