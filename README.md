@@ -11,4 +11,4 @@ StreamCraft Script
 [OpenUserJS](https://openuserjs.org/scripts/%E3%82%A2%E3%83%8B%E3%83%A1%E3%81%A1%E3%82%83%E3%82%93/StreamCraft_Script "StreamCraft Script")
 
 ## GitHub Pages
-[Actual Version](https://ferisef.github.io/streamcraft-helper/)
+[Actual Version](https://uwufule.github.io/streamcraft-helper/)
