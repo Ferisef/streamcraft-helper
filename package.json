@@ -7,8 +7,8 @@
     "start": "webpack"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "アニメちゃん",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
